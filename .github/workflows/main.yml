@@ -25,6 +25,9 @@ jobs:
   
     - name: Verify dependencies
       run: npm ls
+      
+    - name: ejecutar pruebas
+      run: npm test
 
     - name: Deploy to Vercel
       run: npm install -g vercel && vercel --prod --token ${{ secrets.SECRET_TOKEN }} --yes
