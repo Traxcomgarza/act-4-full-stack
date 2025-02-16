@@ -19,8 +19,9 @@ const productRoutes = require('./routes/productRoutes');
 app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
 
-// Servir archivos estáticos
-app.use(express.static(path.join(__dirname, '../')));
+
+// Servir archivos estáticos desde la carpeta public
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en: ${PORT}`);
