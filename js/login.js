@@ -20,3 +20,8 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
         alert(data.error);
     }
 });
+
+document.getElementById('registerLink').addEventListener('click', (event) => {
+    event.preventDefault();
+    window.location.href = 'register.html';
+});

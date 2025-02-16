@@ -299,6 +299,7 @@ function redirectToLogin() {
     window.location.href = "login.html"; 
 }
 
+
 function onClickEditarCurso({ id, autor, nombreCurso}) {
     openModal('agregarCursoModal');
 
