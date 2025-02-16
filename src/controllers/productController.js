@@ -2,13 +2,16 @@
 const Product = require('../models/product');
 //metodo para crear el producto
 exports.createProduct = async (req, res) => {
-  const { name, description } = req.body;
   try {
-    const product = new Product({ name, description });
-    await product.save();
-    res.status(201).send('Producto creado');
+    const product = new Product({
+      name: req.body.name,
+      description: req.body.description,
+      userId: req.user._id 
+    });
+    const savedProduct = await product.save();
+    res.status(201).json(savedProduct);
   } catch (err) {
-    res.status(400).send('Error al crear producto');
+    res.status(500).json({ message: err.message });
   }
 };
 //metodo para obtener el producto
