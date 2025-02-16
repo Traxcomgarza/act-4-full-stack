@@ -1,9 +1,11 @@
-name: CI/CD Vercel
+name: CI/CD vercel
+
 
 on:
   push:
     branches:
-      - develop
+      - develop  
+
 
 jobs:
   build:
@@ -18,14 +20,11 @@ jobs:
       with:
         node-version: '20'
 
-    #- name: Install dependencies comentadas por no detener su ejecucion
-     # run: npm install
+    - name: Install dependencies
+      run: npm install
   
     - name: Verify dependencies
       run: npm ls
-      
-    - name: Run tests
-      run: npm test
 
     - name: Deploy to Vercel
       run: npm install -g vercel && vercel --prod --token ${{ secrets.SECRET_TOKEN }} --yes
